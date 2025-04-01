@@ -61,6 +61,7 @@ import {
 const domain = process.env.SHOPIFY_STORE_DOMAIN
   ? ensureStartsWith(process.env.SHOPIFY_STORE_DOMAIN, 'https://')
   : '';
+
 const endpoint = `${domain}${SHOPIFY_GRAPHQL_API_ENDPOINT}`;
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
@@ -374,6 +375,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       handle
     }
   });
+
 
   return (
     res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
